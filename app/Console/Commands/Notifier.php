@@ -40,6 +40,7 @@ class Notifier extends Command
         $message = '3:00';
         broadcast(new \App\Events\RealTimeMessage('You have a meeting at' . ' ' . $message));
         return view('welcome');
-        return 0;
+        echo "hello world";
+        // return 0;
     }
 }
