@@ -307,10 +307,10 @@ class ReminderController extends Controller
 
     public function notification_list(Request $request, $id)
     {
-        if($request->bearerToken()){
-                $flag = Http::withToken($request->bearerToken())->post('https://crmuser.queleadscrm.com/api/check-if-token-exists');
-                $flag_receive = $flag['data'];
-                if($flag_receive == 1){
+        // if($request->bearerToken()){
+        //         $flag = Http::withToken($request->bearerToken())->post('https://crmuser.queleadscrm.com/api/check-if-token-exists');
+        //         $flag_receive = $flag['data'];
+        //         if($flag_receive == 1){
         if ($request->timezone == "Asia/Dhaka") {
             $data = FollowUp::where('user_id', $id)->where('notification_time', '<=', Carbon::now()->addHour(6)->toDateTimeString())->orderBy('id', 'desc')->get();
         } elseif ($request->timezone == "Australia/Sydney") {
@@ -330,18 +330,18 @@ class ReminderController extends Controller
                 'data' => []
             ], 200);
         }
-            }else{
-                return response()->json([
-                        'message' => 'Unauthenticated',
-                        'status' => 401
-                    ], 401);
-            }
-        }else{
-            return response()->json([
-                        'message' => 'Unauthenticated',
-                        'status' => 401
-                    ], 401);
-        }
+        //     }else{
+        //         return response()->json([
+        //                 'message' => 'Unauthenticated',
+        //                 'status' => 401
+        //             ], 401);
+        //     }
+        // }else{
+        //     return response()->json([
+        //                 'message' => 'Unauthenticated',
+        //                 'status' => 401
+        //             ], 401);
+        // }
 
     }
 
