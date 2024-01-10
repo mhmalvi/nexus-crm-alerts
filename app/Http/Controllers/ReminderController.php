@@ -348,9 +348,7 @@ class ReminderController extends Controller
     public function change_status(Request $request, $id)
     {
         if ($request->bearerToken()) {
-            $user_base_url = env('USER_BASE_URL',"");
-            dd($user_base_url);
-            $flag = Http::withToken($request->bearerToken())->post($user_base_url . 'check-if-token-exists');
+            $flag = Http::withToken($request->bearerToken())->post('https://crmuser.queleadscrm.com/api/check-if-token-exists');
             $flag_receive = $flag['data'];
             if ($flag_receive == 1) {
                 $follow_up = FollowUp::where('id', $id)->where('status', 1)->first();
