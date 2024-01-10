@@ -349,6 +349,7 @@ class ReminderController extends Controller
     {
         if ($request->bearerToken()) {
             $user_base_url = env('USER_BASE_URL',"");
+            dd($user_base_url);
             $flag = Http::withToken($request->bearerToken())->post($user_base_url . 'check-if-token-exists');
             $flag_receive = $flag['data'];
             if ($flag_receive == 1) {
