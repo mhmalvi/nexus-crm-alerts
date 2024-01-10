@@ -348,7 +348,7 @@ class ReminderController extends Controller
     public function change_status(Request $request, $id)
     {
         if ($request->bearerToken()) {
-            $user_base_url = env('USER_BASE_URL');
+            $user_base_url = env('USER_BASE_URL',"");
             $flag = Http::withToken($request->bearerToken())->post($user_base_url . 'check-if-token-exists');
             $flag_receive = $flag['data'];
             if ($flag_receive == 1) {
