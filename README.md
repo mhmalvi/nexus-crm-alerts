@@ -1,3 +1,6 @@
+<!-- repo-card -->
+![nexus-crm-alerts](docs/assets/social-card.png)
+
 # Nexus CRM Alerts
 
 The notification and reminder microservice for the **Nexus CRM** platform. This Laravel-based API manages follow-up scheduling, real-time notification broadcasting, and notification lifecycle operations across the CRM ecosystem.
